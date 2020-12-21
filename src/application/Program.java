@@ -1,5 +1,6 @@
 package application;
 
+import java.util.Date;
 import java.util.List;
 
 import model.dao.DaoFactory;
@@ -15,21 +16,23 @@ public class Program {
 		System.out.println("Teste 1 = Seller findById");
 		System.out.println(seller);
 		
-		System.out.println("Teste 2 = Seller findByDepartment");
-		Department dep = new Department(2, null);
-		List<Seller> list = sellerDao.findByDepartment(dep);
-		System.out.println(seller);
-		for(Seller obj: list) {
-			System.out.println(obj);
-		}
+		 Department dep = new Department(2, null);
+		/*
+		 * System.out.println("Teste 2 = Seller findByDepartment"); List<Seller> list = sellerDao.findByDepartment(dep);
+		 * System.out.println(seller); for(Seller obj: list) { System.out.println(obj);
+		 * }
+		 * 
+		 * 
+		 * System.out.println("Teste 3 = Seller findAll");
+		 * 
+		 * List<Seller> list2 = sellerDao.findAll(); System.out.println(seller);
+		 * for(Seller obj: list2) { System.out.println(obj); } }
+		 */
 		
+		System.out.println("Teste 4 = Insert Seller");
+		Seller newSeller = new Seller(null, "David StrongMan", "stron@gmail.com", new Date(), 4000.0, dep);
+		sellerDao.insert(newSeller);
+		System.out.println("Inserted! new id = " + newSeller.getId());
 		
-		System.out.println("Teste 3 = Seller findAll");
-		
-		List<Seller> list2 = sellerDao.findAll();
-		System.out.println(seller);
-		for(Seller obj: list2) {
-			System.out.println(obj);
-		}
 	}
 }
